@@ -3,6 +3,7 @@
 // "Try a prompt free" signup. Server route + Turnstile are wired in phase 4;
 // the server re-validates everything, this is only for fast feedback.
 import { useId, useState, type FormEvent } from "react";
+import { trackLead } from "@/lib/track";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 type State = { kind: "idle" | "sending" | "ok" | "error"; msg: string };
@@ -30,6 +31,7 @@ export default function SubscribeForm({ source }: { source: string }) {
       });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
+      trackLead(source);
       setState({ kind: "ok", msg: "Check your inbox. Your free prompt is on its way." });
     } catch {
       setState({ kind: "error", msg: "That didn't go through. Check your connection and try again." });

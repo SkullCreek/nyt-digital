@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import type React from "react";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/site";
+import ConsentBanner from "@/components/ConsentBanner";
+import Tracking from "@/components/Tracking";
 import "./globals.css";
 
 // Same type family as the NYT Studios agency site (twin-sister brand).
@@ -45,6 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a className="skip" href="#main">Skip to content</a>
         {children}
+        <ConsentBanner />
+        <Tracking />
+        {/* Cookieless, so it runs without consent. */}
+        <Analytics />
       </body>
     </html>
   );

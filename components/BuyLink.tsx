@@ -3,6 +3,7 @@
 // Link to Whop checkout. On click, forwards the visitor's ad tracking params
 // (utm_*, fbclid) so Whop can attribute the sale to the ad that brought them.
 import type { Product } from "@/lib/products";
+import { trackInitiateCheckout } from "@/lib/track";
 
 const TRACKED = /^(utm_[a-z]+|fbclid)$/;
 
@@ -23,6 +24,7 @@ export default function BuyLink({ product, label = "Get the prompts", size, id }
       href={product.whopUrl}
       onClick={(e) => {
         e.currentTarget.href = withTracking(product.whopUrl);
+        trackInitiateCheckout(product.slug, { value: amount, currency: product.price.currency });
       }}
       aria-label={`${label} for $${amount}${compareAt ? `, was $${compareAt}` : ""}. Opens Whop checkout.`}
     >

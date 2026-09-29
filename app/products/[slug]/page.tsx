@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PRODUCTS, productPath } from "@/lib/products";
 import { Footer, Nav } from "@/components/Chrome";
@@ -8,6 +9,7 @@ import CopyPrompt from "@/components/CopyPrompt";
 import StickyBuy from "@/components/StickyBuy";
 import SubscribeForm from "@/components/SubscribeForm";
 import Viewfinder from "@/components/Viewfinder";
+import TrackView from "@/components/TrackView";
 import { Check, Cross, Spark } from "@/components/icons";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -51,7 +53,7 @@ export default async function ProductPage({ params }: Props) {
               <p className="lead">{p.tagline}</p>
               <div className="buyrow">
                 <BuyLink product={p} id="hero-buy" />
-                <p className="fine">Instant download from Whop.<br />Digital product, no refunds.</p>
+                <p className="fine">Instant download from Whop.<br />Digital product, <Link href="/refunds">no refunds</Link>.</p>
               </div>
               <dl className="spec">
                 {p.stats.map((s) => (
@@ -234,12 +236,13 @@ export default async function ProductPage({ params }: Props) {
           <div className="wrap final">
             <h2>Your rooms are ready to move.</h2>
             <BuyLink product={p} />
-            <p className="fine">Instant download from Whop. Digital product, no refunds.</p>
+            <p className="fine">Instant download from Whop. Digital product, <Link href="/refunds">no refunds</Link>.</p>
           </div>
         </section>
       </main>
       <Footer />
       <StickyBuy product={p} watchId="hero-buy" />
+      <TrackView id={p.slug} name={p.name} value={p.price.amount} currency={p.price.currency} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { INTERIOR_PROMPTS, productPath } from "@/lib/products";
 import { CONTACT, LEGAL, SITE } from "@/lib/site";
 import { Logo } from "./Logo";
 import BuyLink from "./BuyLink";
+import { CookieSettingsButton } from "./ConsentBanner";
 
 export function Nav({ links }: { links: { href: string; label: string }[] }) {
   return (
@@ -52,6 +53,7 @@ export function Footer() {
               <li><Link href="/privacy">Privacy</Link></li>
               <li><Link href="/terms">Terms</Link></li>
               <li><Link href="/refunds">Refunds</Link></li>
+              <li><CookieSettingsButton /></li>
             </ul>
           </div>
         </div>
