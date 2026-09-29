@@ -2,10 +2,10 @@
 
 // Mobile-only buy bar. Shows once the hero buy button has scrolled out of view.
 import { useEffect, useState } from "react";
-import type { Product } from "@/lib/products";
+import type { BuyInfo } from "@/lib/products";
 import BuyLink from "./BuyLink";
 
-export default function StickyBuy({ product, watchId }: { product: Product; watchId: string }) {
+export default function StickyBuy({ product, watchId }: { product: BuyInfo; watchId: string }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {

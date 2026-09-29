@@ -2,7 +2,7 @@
 
 // Link to Whop checkout. On click, forwards the visitor's ad tracking params
 // (utm_*, fbclid) so Whop can attribute the sale to the ad that brought them.
-import type { Product } from "@/lib/products";
+import type { BuyInfo } from "@/lib/products";
 import { trackInitiateCheckout } from "@/lib/track";
 
 const TRACKED = /^(utm_[a-z]+|fbclid)$/;
@@ -15,7 +15,7 @@ function withTracking(href: string): string {
   return url.toString();
 }
 
-export default function BuyLink({ product, label = "Get the prompts", size, id }: { product: Product; label?: string; size?: "small"; id?: string }) {
+export default function BuyLink({ product, label = "Get the prompts", size, id }: { product: BuyInfo; label?: string; size?: "small"; id?: string }) {
   const { amount, compareAt } = product.price;
   return (
     <a
@@ -26,13 +26,13 @@ export default function BuyLink({ product, label = "Get the prompts", size, id }
         e.currentTarget.href = withTracking(product.whopUrl);
         trackInitiateCheckout(product.slug, { value: amount, currency: product.price.currency });
       }}
-      aria-label={`${label} for $${amount}${compareAt ? `, was $${compareAt}` : ""}. Opens Whop checkout.`}
     >
       <span className="label">{label}</span>
       <span className="price">
         ${amount}
-        {compareAt && size !== "small" ? <s>${compareAt}</s> : null}
+        {compareAt && size !== "small" ? <s><span className="sr-only">, was </span>${compareAt}</s> : null}
       </span>
+      <span className="sr-only">, opens Whop checkout</span>
       <i className="corner" /><i className="corner" /><i className="corner" /><i className="corner" />
     </a>
   );

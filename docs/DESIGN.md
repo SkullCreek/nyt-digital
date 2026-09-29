@@ -24,6 +24,7 @@ The only dark surface is the sample prompt panel: the agency's night sky leaking
 | Ink soft | `#4A5270` | Secondary text |
 | Cobalt | `#2346D0` | Buy actions only (the kit's cloth colour) |
 | Brass | `#B08A3E` | The spark and small marks, never text |
+| Brass text | `#7A5820` | Small brass labels such as chapter numbers (5.7:1 on Plaster) |
 | Night | `#0A0F2C` | Sample prompt panel |
 | Rec | `#E5484D` | REC dot and form errors only |
 

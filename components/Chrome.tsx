@@ -1,6 +1,6 @@
 // Site nav and footer (server components).
 import Link from "next/link";
-import { INTERIOR_PROMPTS, productPath } from "@/lib/products";
+import { INTERIOR_PROMPTS, buyInfo, productPath } from "@/lib/products";
 import { CONTACT, LEGAL, SITE } from "@/lib/site";
 import { Logo } from "./Logo";
 import BuyLink from "./BuyLink";
@@ -16,7 +16,7 @@ export function Nav({ links }: { links: { href: string; label: string }[] }) {
             <a key={l.href} href={l.href}>{l.label}</a>
           ))}
         </nav>
-        <BuyLink product={INTERIOR_PROMPTS} size="small" label="Get the prompts" />
+        <BuyLink product={buyInfo(INTERIOR_PROMPTS)} size="small" label="Get the prompts" />
       </div>
     </header>
   );

@@ -11,6 +11,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // E2E tests build into their own folder so they never clobber a running dev/preview build.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   poweredByHeader: false,
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {

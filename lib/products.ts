@@ -52,7 +52,7 @@ export const INTERIOR_PROMPTS: Product = {
   video: {
     src: "/video/ugc-ad-interior-prompts.mp4",
     captions: "/video/ugc-ad-interior-prompts.vtt",
-    poster: "/images/ugc-ad-poster.jpg",
+    poster: "/images/ugc-ad-poster.webp",
     duration: "PT20S",
     uploadDate: "2026-09-29",
     width: 478,
@@ -169,4 +169,9 @@ POSITIVE CONSTRAINTS: Walls, windows, doors, ceiling, floor and furniture stay e
 
 export const PRODUCTS: Product[] = [INTERIOR_PROMPTS];
 
-export const productPath = (p: Product) => `/products/${p.slug}`;
+export const productPath = (p: Pick<Product, "slug">) => `/products/${p.slug}`;
+
+// The few fields client components need. Passing the whole Product to a client component
+// would serialise every ad, FAQ and prompt into the page once per button.
+export type BuyInfo = Pick<Product, "slug" | "shortName" | "whopUrl" | "price">;
+export const buyInfo = (p: Product): BuyInfo => ({ slug: p.slug, shortName: p.shortName, whopUrl: p.whopUrl, price: p.price });

@@ -10,7 +10,6 @@ import "./globals.css";
 // Same type family as the NYT Studios agency site (twin-sister brand).
 const syne = localFont({
   src: [
-    { path: "./fonts/syne-latin-600-normal.woff2", weight: "600" },
     { path: "./fonts/syne-latin-700-normal.woff2", weight: "700" },
     { path: "./fonts/syne-latin-800-normal.woff2", weight: "800" },
   ],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PRODUCTS, productPath } from "@/lib/products";
+import { PRODUCTS, buyInfo, productPath } from "@/lib/products";
 import { Footer, Nav } from "@/components/Chrome";
 import BuyLink from "@/components/BuyLink";
 import CopyPrompt from "@/components/CopyPrompt";
@@ -45,6 +45,7 @@ const NAV = [
 export default async function ProductPage({ params }: Props) {
   const p = find((await params).slug);
   if (!p) notFound();
+  const buy = buyInfo(p);
 
   return (
     <>
@@ -57,7 +58,7 @@ export default async function ProductPage({ params }: Props) {
               <h1>{p.name}</h1>
               <p className="lead">{p.tagline}</p>
               <div className="buyrow">
-                <BuyLink product={p} id="hero-buy" />
+                <BuyLink product={buy} id="hero-buy" />
                 <p className="fine">Instant download from Whop.<br />Digital product, <Link href="/refunds">no refunds</Link>.</p>
               </div>
               <dl className="spec">
@@ -107,7 +108,7 @@ export default async function ProductPage({ params }: Props) {
               <h2 id="ten">10 ad stories, 10 shots each</h2>
               <p className="lead">Pick the one that fits the project you already have. Each chapter walks you through every shot.</p>
             </div>
-            <ol className="ads">
+            <ol className="ads" tabIndex={0} aria-label="The 10 ad stories">
               {p.ads.map((a) => (
                 <li className="ad" key={a.n}>
                   <Image src={a.img.src} alt={a.img.alt} width={a.img.width} height={a.img.height} sizes="(max-width:640px) 72vw, (max-width:1000px) 30vw, 220px" />
@@ -262,13 +263,13 @@ export default async function ProductPage({ params }: Props) {
         <section className="section" style={{ paddingTop: 0 }}>
           <div className="wrap final">
             <h2>Your rooms are ready to move.</h2>
-            <BuyLink product={p} />
+            <BuyLink product={buy} />
             <p className="fine">Instant download from Whop. Digital product, <Link href="/refunds">no refunds</Link>.</p>
           </div>
         </section>
       </main>
       <Footer />
-      <StickyBuy product={p} watchId="hero-buy" />
+      <StickyBuy product={buy} watchId="hero-buy" />
       <JsonLd data={productGraph(p)} />
       <TrackView id={p.slug} name={p.name} value={p.price.amount} currency={p.price.currency} />
     </>

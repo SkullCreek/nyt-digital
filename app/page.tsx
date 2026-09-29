@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { INTERIOR_PROMPTS as p, productPath } from "@/lib/products";
+import { INTERIOR_PROMPTS as p, buyInfo, productPath } from "@/lib/products";
 import { OG_DEFAULTS, SITE } from "@/lib/site";
 import { Footer, Nav } from "@/components/Chrome";
 import BuyLink from "@/components/BuyLink";
@@ -39,7 +39,7 @@ export default function Home() {
               <h2 id="kit-h">{p.name}</h2>
               <p className="muted">{p.tagline}</p>
               <div className="links">
-                <BuyLink product={p} />
+                <BuyLink product={buyInfo(p)} />
                 <Link className="textlink" href={productPath(p)}>See what&apos;s inside</Link>
               </div>
             </div>

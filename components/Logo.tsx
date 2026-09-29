@@ -13,7 +13,7 @@ export function BadgeMark() {
 
 export function Logo() {
   return (
-    <Link className="brand" href="/" aria-label="NYT Studios Digital home">
+    <Link className="brand" href="/" aria-label="NYT Digital, home">
       <BadgeMark />
       <span className="word">
         <b>NYT</b>
