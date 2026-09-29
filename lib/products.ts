@@ -18,7 +18,12 @@ export type Product = {
   includes: { title: string; meta: string; items: string[] }[];
   ads: { n: string; title: string; text: string; img: Img }[];
   steps: { title: string; text: string }[];
-  samplePrompt: { label: string; text: string };
+  samplePrompt: {
+    label: string;
+    text: string;
+    input?: Img; // the photo uploaded as @Image 1
+    output?: { src: string; width: number; height: number; note: string }; // the clip it produced
+  };
   tools: { role: string; name: string; note: string }[];
   fitFor: string[];
   notFor: string[];
@@ -108,6 +113,18 @@ export const INTERIOR_PROMPTS: Product = {
   ],
   samplePrompt: {
     label: "Shot 5 of 100 - The reveal, from Chapter 1: The Swipe",
+    input: {
+      src: "/images/sample-input-living-room.webp",
+      alt: "A calm living room with a linen sofa, oak coffee table, floor lamp and a tall window",
+      width: 768,
+      height: 1376,
+    },
+    output: {
+      src: "/video/sample-output-the-swipe.mp4",
+      width: 480,
+      height: 854,
+      note: "4-second clip with sound",
+    },
     text: `TASK: Image-to-video. @Image 1 is the exact first frame. One continuous shot, about 5 seconds.
 ASSET MAPPING: @AFTER = @Image 1 - the finished (or concept) living room, same angle as the before photo. Use its walls, window, furniture, materials and styling exactly.
 SCENE: The same room, redesigned, in soft late-morning daylight.

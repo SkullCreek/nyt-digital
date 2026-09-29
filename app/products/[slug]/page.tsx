@@ -10,6 +10,7 @@ import StickyBuy from "@/components/StickyBuy";
 import SubscribeForm from "@/components/SubscribeForm";
 import Viewfinder from "@/components/Viewfinder";
 import TrackView from "@/components/TrackView";
+import SampleClip from "@/components/SampleClip";
 import { Check, Cross, Spark } from "@/components/icons";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -156,6 +157,28 @@ export default async function ProductPage({ params }: Props) {
                 </div>
                 <pre tabIndex={0} aria-label="Sample prompt text">{p.samplePrompt.text}</pre>
               </div>
+              {p.samplePrompt.input && p.samplePrompt.output ? (
+                <div className="pair">
+                  <div className="pair-copy">
+                    <h3>The photo in. The clip out.</h3>
+                    <p>We uploaded this photo as @Image 1 and ran the prompt above. On the right is the clip it made.</p>
+                  </div>
+                  <figure>
+                    <Image src={p.samplePrompt.input.src} alt={p.samplePrompt.input.alt} width={p.samplePrompt.input.width} height={p.samplePrompt.input.height} sizes="(max-width:880px) 44vw, 220px" />
+                    <figcaption><b>Your photo</b>Uploaded as @Image 1</figcaption>
+                  </figure>
+                  <figure>
+                    <SampleClip
+                      src={p.samplePrompt.output.src}
+                      poster={p.samplePrompt.input.src}
+                      width={p.samplePrompt.output.width}
+                      height={p.samplePrompt.output.height}
+                      label="The clip this prompt made from the photo"
+                    />
+                    <figcaption><b>What the prompt made</b>{p.samplePrompt.output.note}</figcaption>
+                  </figure>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
