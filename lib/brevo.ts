@@ -21,8 +21,8 @@ async function call(path: string, init: RequestInit & { okStatuses?: number[] } 
     headers: { "api-key": key, accept: "application/json", "content-type": "application/json", ...init.headers },
   });
   if (!res.ok && !(init.okStatuses ?? []).includes(res.status)) {
-    // Log status only: bodies can echo the email address.
-    console.error(`Brevo ${init.method ?? "GET"} ${path.split("/").slice(0, 3).join("/")} failed: ${res.status}`);
+    // Log the endpoint and status only: paths and bodies can contain the email address.
+    console.error(`Brevo ${init.method ?? "GET"} /${path.split("/")[1]} failed: ${res.status}`);
     throw new Error(`Brevo ${res.status}`);
   }
   return res;

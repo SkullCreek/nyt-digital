@@ -14,6 +14,7 @@ const ERRORS: Record<number, string> = {
   400: "Enter a full email address, like name@studio.com.",
   403: "We couldn't confirm you're a person. Try again.",
   429: "Too many tries from this connection. Try again in 10 minutes.",
+  502: "Our email service didn't respond. Try again in a minute, or email info@nyt-studios.com.",
 };
 const FALLBACK = "That didn't go through. Check your connection and try again.";
 
