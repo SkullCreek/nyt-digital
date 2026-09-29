@@ -20,7 +20,7 @@ test.describe("layout", () => {
     await expect(bar).toHaveAttribute("data-show", "false");
     await page.locator("#inside").scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute("data-show", "true");
-    await expect(bar.getByRole("link", { name: /Get it \$9/ })).toBeVisible();
+    await expect(bar.getByRole("link", { name: /Get the prompts \$9/ })).toBeVisible();
   });
 });
 

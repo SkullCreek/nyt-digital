@@ -14,7 +14,7 @@ import SampleClip from "@/components/SampleClip";
 import JsonLd from "@/components/JsonLd";
 import { productGraph } from "@/lib/schema";
 import { OG_DEFAULTS } from "@/lib/site";
-import { Check, Cross, Spark } from "@/components/icons";
+import { Check, Cross } from "@/components/icons";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -49,27 +49,27 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <>
-      <Nav links={NAV} />
+      <Nav links={NAV} mobileBuy={false} />
       <main id="main">
         <section className="hero">
           <div className="wrap hero-grid">
-            <div>
-              <p className="kicker"><Spark />{p.altNames[0]}, for {p.audience.toLowerCase()}</p>
+            <div className="hero-copy">
               <h1>{p.name}</h1>
+              <p className="subtitle">{p.altNames[0]}: the video ad kit for {p.audience.toLowerCase()}</p>
               <p className="lead">{p.tagline}</p>
               <div className="buyrow">
                 <BuyLink product={buy} id="hero-buy" />
                 <p className="fine">Instant download from Whop.<br />Digital product, <Link href="/refunds">no refunds</Link>.</p>
               </div>
-              <dl className="spec">
+            </div>
+            <dl className="spec">
                 {p.stats.map((s) => (
                   <div key={s.label}>
                     <dt>{s.value}</dt>
                     <dd>{s.label}</dd>
                   </div>
                 ))}
-              </dl>
-            </div>
+            </dl>
             {p.video ? <Viewfinder video={p.video} /> : null}
           </div>
         </section>

@@ -23,9 +23,10 @@ export default function SubscribeForm({ source }: { source: string }) {
   const [state, setState] = useState<State>({ kind: "idle", msg: "" });
   const widgetEl = useRef<HTMLDivElement>(null);
   const ts = useRef<ReturnType<typeof createTurnstile> | null>(null);
+  const [checking, setChecking] = useState(false);
 
   useEffect(() => {
-    if (widgetEl.current) ts.current = createTurnstile(widgetEl.current);
+    if (widgetEl.current) ts.current = createTurnstile(widgetEl.current, setChecking);
   }, []);
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
@@ -52,7 +53,7 @@ export default function SubscribeForm({ source }: { source: string }) {
       }
       form.reset();
       trackLead(source);
-      setState({ kind: "ok", msg: "Check your inbox. Your free prompt is on its way." });
+      setState({ kind: "ok", msg: "Check your inbox and spam folder. Not there in 10 minutes? Email info@nyt-studios.com." });
     } catch {
       setState({ kind: "error", msg: FALLBACK });
     }
@@ -86,6 +87,7 @@ export default function SubscribeForm({ source }: { source: string }) {
         <label htmlFor={`${id}-company`}>Company</label>
         <input id={`${id}-company`} name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
+      {checking ? <p className="formnote">Tick the box to confirm you&apos;re a person, then we&apos;ll send it.</p> : null}
       <div ref={widgetEl} className="ts" />
       <p id={`${id}-msg`} className="msg" data-kind={state.kind} role={invalid ? "alert" : "status"}>
         {state.msg}

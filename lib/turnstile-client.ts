@@ -33,7 +33,7 @@ export function loadTurnstile(): Promise<Turnstile> {
 }
 
 // One widget per form. getToken() runs the check and resolves with a fresh single-use token.
-export function createTurnstile(container: HTMLElement) {
+export function createTurnstile(container: HTMLElement, onInteractive?: (visible: boolean) => void) {
   let id: string | null = null;
   let pending: { resolve: (t: string) => void; reject: (e: Error) => void } | null = null;
 
@@ -46,6 +46,9 @@ export function createTurnstile(container: HTMLElement) {
       callback: (token: string) => pending?.resolve(token),
       "error-callback": () => pending?.reject(new Error("turnstile error")),
       "expired-callback": () => ts.reset(id!),
+      // Cloudflare only shows a checkbox when it needs one; tell the form so it can explain it.
+      "before-interactive-callback": () => onInteractive?.(true),
+      "after-interactive-callback": () => onInteractive?.(false),
     });
     return ts;
   }

@@ -6,9 +6,10 @@ import { Logo } from "./Logo";
 import BuyLink from "./BuyLink";
 import { CookieSettingsButton } from "./ConsentBanner";
 
-export function Nav({ links }: { links: { href: string; label: string }[] }) {
+// mobileBuy=false on pages with the sticky mobile buy bar, so phones never show two buy buttons.
+export function Nav({ links, mobileBuy = true }: { links: { href: string; label: string }[]; mobileBuy?: boolean }) {
   return (
-    <header className="nav">
+    <header className={mobileBuy ? "nav" : "nav no-mobile-buy"}>
       <div className="wrap nav-in">
         <Logo />
         <nav className="nav-links" aria-label="Main">

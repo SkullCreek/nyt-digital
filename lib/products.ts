@@ -113,7 +113,7 @@ export const INTERIOR_PROMPTS: Product = {
   steps: [
     { title: "Pick one ad", text: "A simple picker matches the photos you already have to the right chapter." },
     { title: "Make your start images", text: "Use your real photos, plus the image prompts where you need an “after” or a time of day." },
-    { title: "Paste 10 prompts", text: "Into Seedance 2.5, one shot at a time. Each clip is 4-5 seconds; you trim to 2-3." },
+    { title: "Paste 10 prompts", text: "Into Seedance 2.5, one shot at a time. Each clip is 4‑5 seconds; you trim to 2‑3." },
     { title: "Check, cut, post", text: "A 30-second clip check, the CapCut edit, then the chapter's caption and hook." },
   ],
   samplePrompt: {

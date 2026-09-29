@@ -5,7 +5,6 @@ import { OG_DEFAULTS, SITE } from "@/lib/site";
 import { Footer, Nav } from "@/components/Chrome";
 import BuyLink from "@/components/BuyLink";
 import SubscribeForm from "@/components/SubscribeForm";
-import { Spark } from "@/components/icons";
 import JsonLd from "@/components/JsonLd";
 import { siteGraph } from "@/lib/schema";
 import type { Metadata } from "next";
@@ -25,7 +24,6 @@ export default function Home() {
       <main id="main">
         <section className="home-hero">
           <div className="wrap">
-            <p className="kicker"><Spark />From the NYT Studios ad team</p>
             <h1>Make the AI ads yourself.</h1>
             <p className="lead">We make AI video ads for brands. Here we package what works into prompt kits you can use on your own projects, starting with interior design.</p>
           </div>

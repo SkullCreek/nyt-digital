@@ -109,7 +109,7 @@ test.describe("free prompt form", () => {
     });
     await form(page).getByRole("textbox", { name: "Email address" }).fill("ana@studio.com");
     await form(page).getByRole("button", { name: "Send me the prompt" }).click();
-    await expect(form(page).getByRole("status")).toHaveText("Check your inbox. Your free prompt is on its way.");
+    await expect(form(page).getByRole("status")).toHaveText(/Check your inbox and spam folder/);
     expect(body.email).toBe("ana@studio.com");
     expect(body.source).toBe("ai-video-prompts-interior-design-reels");
     expect(body.company).toBe("");
