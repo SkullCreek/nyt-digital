@@ -1,6 +1,6 @@
 "use client";
 
-// "5 free prompts" signup. Server route + Turnstile are wired in phase 4;
+// "Try a prompt free" signup. Server route + Turnstile are wired in phase 4;
 // the server re-validates everything, this is only for fast feedback.
 import { useId, useState, type FormEvent } from "react";
 
@@ -30,7 +30,7 @@ export default function SubscribeForm({ source }: { source: string }) {
       });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
-      setState({ kind: "ok", msg: "Check your inbox. The 5 prompts are on their way." });
+      setState({ kind: "ok", msg: "Check your inbox. Your free prompt is on its way." });
     } catch {
       setState({ kind: "error", msg: "That didn't go through. Check your connection and try again." });
     }
@@ -54,7 +54,7 @@ export default function SubscribeForm({ source }: { source: string }) {
           onInput={() => invalid && setState({ kind: "idle", msg: "" })}
         />
         <button type="submit" disabled={state.kind === "sending"}>
-          {state.kind === "sending" ? <><span className="spin" aria-hidden="true" />Sending</> : "Send me 5 prompts"}
+          {state.kind === "sending" ? <><span className="spin" aria-hidden="true" />Sending</> : "Send me the prompt"}
         </button>
       </div>
       {/* Honeypot: hidden from people, bots fill it in. */}

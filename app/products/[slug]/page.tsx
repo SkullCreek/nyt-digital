@@ -205,8 +205,8 @@ export default async function ProductPage({ params }: Props) {
           <div className="wrap">
             <div className="free">
               <div>
-                <h2 id="free-h">Not sure yet? Try 5 prompts free.</h2>
-                <p className="lead" style={{ marginTop: 14 }}>We&apos;ll email you 5 prompts from the kit. Make one clip and see how your room looks before you spend $9.</p>
+                <h2 id="free-h">Not sure yet? Try a prompt free.</h2>
+                <p className="lead" style={{ marginTop: 14 }}>We&apos;ll email you one prompt from the kit. Make one clip and see how your room looks before you spend $9.</p>
               </div>
               <SubscribeForm source={p.slug} />
             </div>

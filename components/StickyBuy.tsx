@@ -18,7 +18,7 @@ export default function StickyBuy({ product, watchId }: { product: Product; watc
 
   return (
     <div className="stickybuy" data-show={show} inert={!show}>
-      <p>100 prompts for interior design reels</p>
+      <p>{product.shortName}</p>
       <BuyLink product={product} size="small" label="Get it" />
     </div>
   );

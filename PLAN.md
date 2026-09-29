@@ -19,7 +19,7 @@ In scope for v1:
 - Privacy Policy, Terms & Conditions, Refund Policy.
 - Custom 404.
 - Cookie consent, analytics, Meta Pixel and Whop Pixel.
-- Email capture form ("5 free prompts") with validation and spam protection, if decision D2 is yes.
+- Email capture form ("try a prompt free", one prompt) with validation and spam protection, if decision D2 is yes.
 - SEO, GEO (AI search engines) and AEO (answer engines) foundations.
 
 Out of scope for v1:
@@ -48,7 +48,7 @@ Out of scope for v1:
 | # | Decision | Answer |
 |---|----------|--------|
 | D1 | Product name | "100 AI Video Prompts for Interior Design Reels" (H1, title tag, schema). Subheads: "Scroll-Stopping Rooms", "Rooms in Motion" |
-| D2 | Email capture form | Yes: "5 free prompts" form, Brevo list, Cloudflare Turnstile |
+| D2 | Email capture form | Yes: "try a prompt free" form (one prompt), Brevo list, Cloudflare Turnstile |
 | D3 | Legal entity | KAVITA GLOBAL INDUSTRIAL SOLUTION, Flat No: A-1103, Param Skywalk, Chala, Vapi - 396191, Gujarat, India. Grievance contact: `info@nyt-studios.com` |
 | D4 | Refund policy | No refunds on digital downloads, because results depend on third-party AI models. Only exceptions: file never delivered, or file corrupt and we can't replace it. Must match the Whop setting. Shown in plain words next to the Buy button, on `/refunds` and in `/terms`, so no buyer can say they weren't told |
 | D5 | UGC ad video | Received: `UGC ad_digital_product_1.mp4` (4.2 MB) |
@@ -157,7 +157,7 @@ AEO (featured answers, "People also ask", voice):
 - Price in the button text, so there's no surprise at checkout.
 - Meta Pixel events: `PageView`, `ViewContent` (product page), `InitiateCheckout` (Buy click), `Lead` (email form); `Purchase` comes from Whop.
 - Before running ads: verify the domain in Meta Business Manager and confirm a test Purchase arrives.
-- Email list: the 5 free prompts lead to a short email sequence that ends with the kit offer.
+- Email list: the free prompt leads to a short email sequence that ends with the kit offer.
 - After the first real reviews: add a reviews section and use the best ones in ads.
 
 ## 10. Testing

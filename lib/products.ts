@@ -6,6 +6,7 @@ export type Img = { src: string; alt: string; width: number; height: number };
 export type Product = {
   slug: string;
   name: string; // main name: H1, <title>, schema
+  shortName: string; // mobile buy bar and tight spaces
   altNames: string[]; // subheads and search variants
   tagline: string;
   audience: string;
@@ -29,6 +30,7 @@ const ad = (file: string, alt: string): Img => ({ src: `/images/${file}.jpg`, al
 export const INTERIOR_PROMPTS: Product = {
   slug: "ai-video-prompts-interior-design-reels",
   name: "100 AI Video Prompts for Interior Design Reels",
+  shortName: "100 prompts for interior design reels",
   altNames: ["Scroll-Stopping Rooms", "Rooms in Motion"],
   tagline: "Turn your finished projects into 20-second video ads that book clients. No videographer, and no faked walls.",
   audience: "Interior designers",

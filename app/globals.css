@@ -15,6 +15,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   color-scheme:light;
 }
 html,body{background:var(--plaster)}
+/* Syne defaults to old-style figures (a 9 drops below the baseline); use lining figures site-wide. */
+html{font-variant-numeric:lining-nums}
 body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{max-width:100%;height:auto;display:block}
 a{color:inherit}
@@ -81,7 +83,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .fine{font-size:14px;color:var(--ink-soft)}
 .spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:40px 0 0;max-width:560px;border-top:1px solid var(--line-strong)}
 .spec div{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.spec dt{font-family:var(--display);font-weight:700;font-size:26px;line-height:1;flex:none;width:64px;font-variant-numeric:tabular-nums}
+.spec dt{font-family:var(--display);font-weight:700;font-size:26px;line-height:1;flex:none;width:64px;font-variant-numeric:lining-nums tabular-nums}
 .spec dd{margin:0;font-size:14.5px;line-height:1.35;color:var(--ink-soft)}
 @media (max-width:880px){.hero-grid{grid-template-columns:1fr}.finder{max-width:340px;justify-self:center}}
 @media (max-width:420px){.spec{grid-template-columns:1fr}}
@@ -124,7 +126,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ads{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px 20px}
 .ad{display:grid;gap:8px;align-content:start}
 .ad img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-media);margin-bottom:6px;background:var(--paper)}
-.ad .n{font-family:var(--display);font-weight:700;font-size:14px;color:var(--brass);font-variant-numeric:tabular-nums}
+.ad .n{font-family:var(--display);font-weight:700;font-size:14px;color:var(--brass);font-variant-numeric:lining-nums tabular-nums}
 .ad h3{font-size:18px}
 .ad p{font-size:14.5px;line-height:1.45;color:var(--ink-soft)}
 .note{margin-top:28px;font-size:13.5px;color:var(--ink-soft)}

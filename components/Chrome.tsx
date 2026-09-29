@@ -35,7 +35,7 @@ export function Footer() {
             <h2>Shop</h2>
             <ul>
               <li><Link href={productPath(INTERIOR_PROMPTS)}>Interior design prompts</Link></li>
-              <li><Link href="/#free">5 free prompts</Link></li>
+              <li><Link href="/#free">Try a prompt free</Link></li>
             </ul>
           </div>
           <div>

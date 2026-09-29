@@ -9,7 +9,7 @@ import { Spark } from "@/components/icons";
 
 const NAV = [
   { href: productPath(p), label: "Prompt kit" },
-  { href: "#free", label: "Free prompts" },
+  { href: "#free", label: "Free prompt" },
   { href: SITE.agencyUrl, label: "Ad studio" },
 ];
 
@@ -46,7 +46,7 @@ export default function Home() {
             <div className="free">
               <div>
                 <h2 id="free-h">More kits are in production.</h2>
-                <p className="lead" style={{ marginTop: 14 }}>Get 5 free interior design prompts now, and an email when the next kit is out.</p>
+                <p className="lead" style={{ marginTop: 14 }}>Try one interior design prompt free now, and get an email when the next kit is out.</p>
               </div>
               <SubscribeForm source="home" />
             </div>
