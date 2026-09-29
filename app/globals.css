@@ -226,6 +226,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .msg[data-kind="error"]{color:#B42318}
 .msg[data-kind="ok"]{color:#18794E}
 .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.ts:empty{display:none}
+.formnote{font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.formnote a{color:inherit;text-underline-offset:3px}
 /* submit spinner (ref: uiverse Bodyhc/wonderful-panther-25) */
 .spin{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
