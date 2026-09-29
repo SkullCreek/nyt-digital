@@ -112,7 +112,7 @@ export const INTERIOR_PROMPTS: Product = {
   ],
   steps: [
     { title: "Pick one ad", text: "A simple picker matches the photos you already have to the right chapter." },
-    { title: "Make your start images", text: "Use your real photos, plus the image prompts where you need an \"after\" or a time of day." },
+    { title: "Make your start images", text: "Use your real photos, plus the image prompts where you need an “after” or a time of day." },
     { title: "Paste 10 prompts", text: "Into Seedance 2.5, one shot at a time. Each clip is 4-5 seconds; you trim to 2-3." },
     { title: "Check, cut, post", text: "A 30-second clip check, the CapCut edit, then the chapter's caption and hook." },
   ],
@@ -141,7 +141,7 @@ AUDIO: <a soft room-tone swell>, <light breeze>. No music, no narration, no subt
 POSITIVE CONSTRAINTS: Walls, windows, doors, ceiling, floor and furniture stay exactly as in @Image 1. Nothing is added, removed or resized. No people.`,
   },
   tools: [
-    { role: "Images", name: "Nano Banana, ChatGPT or Midjourney", note: "For your start frames and \"after\" images." },
+    { role: "Images", name: "Nano Banana, ChatGPT or Midjourney", note: "For your start frames and “after” images." },
     { role: "Video", name: "Seedance 2.5", note: "On Higgsfield or another Seedance host. Every prompt is written for it." },
     { role: "Edit", name: "CapCut", note: "Free on phone and desktop. The kit walks you through each edit." },
   ],

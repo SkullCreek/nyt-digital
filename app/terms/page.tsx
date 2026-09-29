@@ -23,7 +23,7 @@ export default function Terms() {
       <h2 id="about">1. About these terms</h2>
       <p>
         These terms apply when you use {SITE.url.replace("https://", "")} or buy a product we sell. The seller is {LEGAL.entity}, {LEGAL.address},
-        trading as NYT Studios (&quot;we&quot;, &quot;us&quot;). By buying or using a product, you agree to these terms.
+        trading as NYT Studios (“we”, “us”). By buying or using a product, you agree to these terms.
       </p>
 
       <h2 id="products">2. Our products</h2>
@@ -75,7 +75,7 @@ export default function Terms() {
 
       <h2 id="liability">9. Liability</h2>
       <p>
-        Products are provided &quot;as is&quot;. To the extent the law allows, we are not liable for indirect or consequential losses, lost profits,
+        Products are provided “as is”. To the extent the law allows, we are not liable for indirect or consequential losses, lost profits,
         or problems caused by third-party tools. Our total liability for any claim about a product is limited to the amount you paid for it.
         Nothing in these terms limits rights you have under consumer law that can&apos;t be excluded.
       </p>

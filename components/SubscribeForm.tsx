@@ -69,6 +69,8 @@ export default function SubscribeForm({ source }: { source: string }) {
           type="email"
           inputMode="email"
           autoComplete="email"
+          spellCheck={false}
+          autoCapitalize="off"
           placeholder="you@yourstudio.com"
           required
           aria-invalid={invalid}
@@ -76,7 +78,7 @@ export default function SubscribeForm({ source }: { source: string }) {
           onInput={() => invalid && setState({ kind: "idle", msg: "" })}
         />
         <button type="submit" disabled={state.kind === "sending"}>
-          {state.kind === "sending" ? <><span className="spin" aria-hidden="true" />Sending</> : "Send me the prompt"}
+          {state.kind === "sending" ? <><span className="spin" aria-hidden="true" />Sending…</> : "Send me the prompt"}
         </button>
       </div>
       {/* Honeypot: hidden from people, bots fill it in. */}

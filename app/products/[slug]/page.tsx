@@ -78,7 +78,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="wrap">
             <div className="section-head">
               <h2 id="flop">You&apos;ve tried it. The room melted.</h2>
-              <p className="lead">Typing &quot;video of a living room&quot; into an AI tool gets you one of two results, and neither belongs on your feed.</p>
+              <p className="lead">Typing “video of a living room” into an AI tool gets you one of two results, and neither belongs on your feed.</p>
             </div>
             <div className="walls">
               <div className="wall">
@@ -87,7 +87,7 @@ export default async function ProductPage({ params }: Props) {
               </div>
               <div className="wall">
                 <h3>It isn&apos;t your room anymore</h3>
-                <p>AI loves to &quot;improve&quot; things: a bigger window, an extra lamp, a door that wasn&apos;t there. That&apos;s not a portfolio, it&apos;s a problem.</p>
+                <p>AI loves to “improve” things: a bigger window, an extra lamp, a door that wasn&apos;t there. That&apos;s not a portfolio, it&apos;s a problem.</p>
               </div>
             </div>
             <div className="lockline">

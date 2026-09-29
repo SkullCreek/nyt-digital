@@ -42,7 +42,7 @@ export function freePromptEmail() {
     `Like the result? The full kit has 100 prompts like this, 10 ad stories, worksheets and a 120-page guide for $${INTERIOR_PROMPTS.price.amount}:`,
     url,
     "",
-    `You're getting this because you asked for it at ${SITE.url.replace("https://", "")}. Reply "stop" and we won't email you again.`,
+    `You're getting this because you asked for it at ${SITE.url.replace("https://", "")}. Reply “stop” and we won't email you again.`,
     `${LEGAL.entity}, ${LEGAL.address}`,
   ].join("\n");
 
@@ -62,7 +62,7 @@ export function freePromptEmail() {
 <p style="font-size:16px;line-height:1.5;margin:0 0 14px">Like the result? The full kit has 100 prompts like this, 10 ad stories, worksheets and a 120-page guide.</p>
 <a href="${url}" style="display:inline-block;background:#2346D0;color:#FFFFFF;text-decoration:none;font-weight:bold;font-size:16px;padding:14px 24px;border-radius:99px">Get all 100 prompts for $${INTERIOR_PROMPTS.price.amount}</a>
 </div>
-<p style="font-size:12px;line-height:1.6;color:#4A5270;margin:0">You're getting this because you asked for it at ${esc(SITE.url.replace("https://", ""))}. Reply "stop" and we won't email you again.<br>${esc(LEGAL.entity)}, ${esc(LEGAL.address)}<br>Questions: <a href="mailto:${CONTACT.email}" style="color:#4A5270">${CONTACT.email}</a></p>
+<p style="font-size:12px;line-height:1.6;color:#4A5270;margin:0">You're getting this because you asked for it at ${esc(SITE.url.replace("https://", ""))}. Reply “stop” and we won't email you again.<br>${esc(LEGAL.entity)}, ${esc(LEGAL.address)}<br>Questions: <a href="mailto:${CONTACT.email}" style="color:#4A5270">${CONTACT.email}</a></p>
 </div></body></html>`;
 
   return { subject, text, html };

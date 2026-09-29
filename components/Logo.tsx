@@ -15,7 +15,7 @@ export function Logo() {
   return (
     <Link className="brand" href="/" aria-label="NYT Digital, home">
       <BadgeMark />
-      <span className="word">
+      <span className="word" translate="no">
         <b>NYT</b>
         <small>DIGITAL</small>
       </span>

@@ -1,6 +1,7 @@
 /* NYT Studios Digital: the studio in daylight. Tokens documented in docs/DESIGN.md. */
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+a,button,input,summary,label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(35,70,208,.12)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
 :root{
@@ -166,6 +167,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .prompt pre{margin:0;padding:18px 20px 22px;font:400 13.5px/1.7 var(--mono);white-space:pre-wrap;color:#E9ECF7;max-height:420px;overflow:auto}
 /* copy button (ref: uiverse vinodjangid07/brave-ladybug-0) */
 .copy{all:unset;cursor:pointer;display:inline-flex;align-items:stretch;height:36px;border-radius:99px;overflow:hidden;background:#fff;color:var(--night);font:500 14px/1 var(--body);flex:none;transition:transform .15s}
+.copy:hover .i{background:#C9D3FF}
 .copy:active{transform:scale(.97)}
 .copy:focus-visible{outline:2.5px solid #8FA6FF;outline-offset:3px}
 .copy .t{display:grid;place-items:center;padding:0 12px 0 16px;min-width:74px}
@@ -257,6 +259,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .stickybuy[data-show="true"]{transform:none}
 .stickybuy p{font-size:14px;line-height:1.3;font-weight:500}
 @media (min-width:761px){.stickybuy{display:none}}
+/* keep focused elements clear of the mobile buy bar */
+@media (max-width:760px){html{scroll-padding-bottom:84px}}
 
 /* ---------- home ---------- */
 .home-hero{padding-block:clamp(48px,8vw,112px) clamp(40px,6vw,72px)}
@@ -296,6 +300,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .cbtn.solid{background:var(--ink);color:#fff;flex:1}
 .cbtn.solid:hover{background:#1D2A5A}
 .cbtn.plain{color:var(--ink);text-decoration:underline;text-underline-offset:3px;padding:0 10px}
+.cbtn.plain:hover{text-decoration-thickness:2px}
 .cbtn:focus-visible{outline:2.5px solid var(--cobalt);outline-offset:3px}
 .prefs{display:grid;border-top:1px solid var(--line)}
 .pref{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}

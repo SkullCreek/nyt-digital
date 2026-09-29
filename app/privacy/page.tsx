@@ -23,7 +23,7 @@ export default function Privacy() {
     >
       <h2 id="who">Who we are</h2>
       <p>
-        {SITE.name} ({SITE.url.replace("https://", "")}) is run by {LEGAL.entity}, {LEGAL.address} (&quot;we&quot;, &quot;us&quot;).
+        {SITE.name} ({SITE.url.replace("https://", "")}) is run by {LEGAL.entity}, {LEGAL.address} (“we”, “us”).
         We are responsible for the personal data described in this policy.
       </p>
 
@@ -51,7 +51,7 @@ export default function Privacy() {
       </ul>
       <p>
         If you are in the EU, EEA, UK or Switzerland, ad measurement stays off until you click Accept. Everywhere else it is on by default and you can turn it off.
-        You can change your choice at any time with &quot;Cookie settings&quot; at the bottom of every page.
+        You can change your choice at any time with “Cookie settings” at the bottom of every page.
       </p>
       <p>Our site analytics (Vercel Web Analytics) uses no cookies.</p>
 
@@ -76,7 +76,7 @@ export default function Privacy() {
       <h2 id="rights">Your rights</h2>
       <p>
         Depending on where you live (including under India&apos;s Digital Personal Data Protection Act, 2023 and the EU/UK GDPR), you can ask us to:
-        access your data, correct it, delete it, or stop using it for marketing. You can withdraw consent at any time; every email has an unsubscribe link.
+        access your data, correct it, delete it, or stop using it for marketing. You can withdraw consent at any time: use the unsubscribe link in our newsletters, reply “stop” to any email, or email us.
         EU/UK residents can also complain to their data protection authority.
       </p>
       <p>We reply within 30 days. We may ask you to confirm your identity first.</p>
