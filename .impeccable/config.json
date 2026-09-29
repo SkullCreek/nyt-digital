@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-09-29T15:08:23.268Z",
+        "reason": "Claude triage: lib/free-prompt.ts is an HTML email; email clients don't load web fonts, so a web-safe stack (Arial, Helvetica) is required"
+      }
+    ]
+  }
+}

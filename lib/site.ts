@@ -7,6 +7,9 @@ export const SITE = {
   tagline: "AI video tools and prompt kits from the NYT Studios ad team.",
 };
 
+// Next.js replaces (doesn't merge) a page's openGraph object, so pages spread these in.
+export const OG_DEFAULTS = { siteName: SITE.name, type: "website", locale: "en_US" } as const;
+
 export const CONTACT = {
   email: "info@nyt-studios.com",
   whatsapp: "919008474779", // country code + number, no +

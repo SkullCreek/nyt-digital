@@ -11,6 +11,9 @@ import SubscribeForm from "@/components/SubscribeForm";
 import Viewfinder from "@/components/Viewfinder";
 import TrackView from "@/components/TrackView";
 import SampleClip from "@/components/SampleClip";
+import JsonLd from "@/components/JsonLd";
+import { productGraph } from "@/lib/schema";
+import { OG_DEFAULTS } from "@/lib/site";
 import { Check, Cross, Spark } from "@/components/icons";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -27,8 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {};
   return {
     title: p.name,
-    description: `${p.tagline} ${p.altNames[0]}: $${p.price.amount}, instant download.`,
+    description: p.metaDescription,
     alternates: { canonical: productPath(p) },
+    openGraph: { ...OG_DEFAULTS, title: p.name, description: p.metaDescription, url: productPath(p) },
   };
 }
 
@@ -265,6 +269,7 @@ export default async function ProductPage({ params }: Props) {
       </main>
       <Footer />
       <StickyBuy product={p} watchId="hero-buy" />
+      <JsonLd data={productGraph(p)} />
       <TrackView id={p.slug} name={p.name} value={p.price.amount} currency={p.price.currency} />
     </>
   );

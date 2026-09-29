@@ -92,6 +92,23 @@ The home page, product page, sitemap and structured data update automatically.
 1. Push to the GitHub repo connected to Vercel.
 2. Every push to `main` deploys to production; every other branch gets a preview URL.
 3. Domains in Vercel: `digital.nyt-studios.com` is primary; `www.digital.nyt-studios.com` redirects to it.
+4. In Vercel, set `NEXT_PUBLIC_SITE_URL` to `https://digital.nyt-studios.com` (or leave it unset). It drives canonical URLs, the sitemap, social cards and links in emails, so `localhost` must never reach production.
+
+## Search (SEO, GEO, AEO)
+
+Generated from `lib/products.ts` and `lib/site.ts` at build time:
+
+- Page titles, descriptions and canonical URLs (`metadata` in each page).
+- Social preview cards: `app/opengraph-image.tsx` and `app/products/[slug]/opengraph-image.tsx` (design in `lib/og.tsx`).
+- `/sitemap.xml` (with image and video entries), `/robots.txt`, `/llms.txt` (a plain-text summary for AI assistants).
+- Structured data (`lib/schema.ts`): Organization and WebSite on the home page; Product, Offer, VideoObject, FAQPage and BreadcrumbList on product pages.
+- Favicon `app/icon.svg`, home-screen icon `app/apple-icon.tsx`, `app/manifest.ts`.
+
+After the first deploy:
+
+1. Google Search Console: add the `digital.nyt-studios.com` property, verify it through DNS, and submit `/sitemap.xml`.
+2. Bing Webmaster Tools: import the site from Search Console. Bing's index feeds ChatGPT search and Copilot.
+3. Check the product page in Google's Rich Results Test.
 
 ## Before running Meta ads
 

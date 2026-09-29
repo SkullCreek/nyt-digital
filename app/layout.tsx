@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type React from "react";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
-import { SITE } from "@/lib/site";
+import { OG_DEFAULTS, SITE } from "@/lib/site";
 import ConsentBanner from "@/components/ConsentBanner";
 import Tracking from "@/components/Tracking";
 import "./globals.css";
@@ -36,8 +36,11 @@ const mono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: SITE.name, template: `%s | ${SITE.name}` },
-  description: SITE.tagline,
+  title: { default: "NYT Studios Digital: AI video prompt kits", template: "%s | NYT Digital" },
+  description: "AI video prompt kits from NYT Studios, an AI ad studio. Start with 100 prompts that turn interior design photos into video ads that book clients.",
+  applicationName: SITE.name,
+  openGraph: OG_DEFAULTS,
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#EEF0F3", colorScheme: "light" };
@@ -50,8 +53,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <ConsentBanner />
         <Tracking />
-        {/* Cookieless, so it runs without consent. */}
-        <Analytics />
+        {/* Cookieless, so it runs without consent. Its script only exists on Vercel deployments. */}
+        {process.env.VERCEL ? <Analytics /> : null}
       </body>
     </html>
   );

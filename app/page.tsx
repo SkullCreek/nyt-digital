@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { INTERIOR_PROMPTS as p, productPath } from "@/lib/products";
-import { SITE } from "@/lib/site";
+import { OG_DEFAULTS, SITE } from "@/lib/site";
 import { Footer, Nav } from "@/components/Chrome";
 import BuyLink from "@/components/BuyLink";
 import SubscribeForm from "@/components/SubscribeForm";
 import { Spark } from "@/components/icons";
+import JsonLd from "@/components/JsonLd";
+import { siteGraph } from "@/lib/schema";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { alternates: { canonical: "/" }, openGraph: { ...OG_DEFAULTS, url: "/" } };
 
 const NAV = [
   { href: productPath(p), label: "Prompt kit" },
@@ -64,6 +69,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+      <JsonLd data={siteGraph()} />
     </>
   );
 }
