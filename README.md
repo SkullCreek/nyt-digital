@@ -108,7 +108,8 @@ After the first deploy:
 
 1. Google Search Console: add the `digital.nyt-studios.com` property, verify it through DNS, and submit `/sitemap.xml`.
 2. Bing Webmaster Tools: import the site from Search Console. Bing's index feeds ChatGPT search and Copilot.
-3. Check the product page in Google's Rich Results Test.
+3. IndexNow: run `npm run indexnow` after any deploy that changes page content. It sends every page in the sitemap to Bing, which then shows them under IndexNow in Bing Webmaster Tools. The key is the 32-character `.txt` file in `public/`.
+4. Check the product page in Google's Rich Results Test.
 
 ## Before running Meta ads
 
