@@ -7,13 +7,13 @@ import ConsentBanner from "@/components/ConsentBanner";
 import Tracking from "@/components/Tracking";
 import "./globals.css";
 
-// Same type family as the NYT Studios agency site (twin-sister brand).
-const syne = localFont({
+// Display face: Bricolage Grotesque. Body face (Space Grotesk) is shared with the NYT Studios agency site.
+const display = localFont({
   src: [
-    { path: "./fonts/syne-latin-700-normal.woff2", weight: "700" },
-    { path: "./fonts/syne-latin-800-normal.woff2", weight: "800" },
+    { path: "./fonts/bricolage-grotesque-latin-700-normal.woff2", weight: "700" },
+    { path: "./fonts/bricolage-grotesque-latin-800-normal.woff2", weight: "800" },
   ],
-  variable: "--font-syne",
+  variable: "--font-display",
   display: "swap",
 });
 const grotesk = localFont({
@@ -46,7 +46,7 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${grotesk.variable} ${mono.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${grotesk.variable} ${mono.variable}`}>
       <body>
         <a className="skip" href="#main">Skip to content</a>
         {children}

@@ -1,5 +1,5 @@
 // Social preview cards (1200x630), rendered at build time with next/og.
-// Same brand as the site: plaster ground, navy Syne type, cobalt price, viewfinder corners.
+// Same brand as the site: plaster ground, navy display type, cobalt price, viewfinder corners.
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -26,8 +26,8 @@ const Corner = ({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) => {
 };
 
 export async function renderCard({ kicker, title, price, image, imageMime = "image/jpeg" }: Card) {
-  const [syne, grotesk, img] = await Promise.all([
-    font("syne-latin-800-normal.woff"),
+  const [display, grotesk, img] = await Promise.all([
+    font("bricolage-grotesque-latin-800-normal.woff"),
     font("space-grotesk-latin-500-normal.woff"),
     imageDataUrl(image, imageMime),
   ]);
@@ -42,19 +42,18 @@ export async function renderCard({ kicker, title, price, image, imageMime = "ima
               <path d="M0 -70 C0 -22 17 0 58 0 C17 0 0 22 0 70 C0 22 -17 0 -58 0 C-17 0 0 -22 0 -70Z" fill="#2346D0" />
             </svg>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontFamily: "Syne", fontSize: 26, letterSpacing: 1 }}>NYT</div>
+              <div style={{ fontFamily: "Display", fontSize: 26, letterSpacing: 1 }}>NYT</div>
               <div style={{ fontSize: 11, letterSpacing: 5, color: "#4A5270" }}>DIGITAL</div>
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             <div style={{ fontSize: 26, color: "#4A5270" }}>{kicker}</div>
-            <div style={{ fontFamily: "Syne", fontSize: title.length > 40 ? 54 : 68, lineHeight: 1.02, letterSpacing: -1.5 }}>{title}</div>
+            <div style={{ fontFamily: "Display", fontSize: title.length > 40 ? 62 : 76, lineHeight: 1.02, letterSpacing: -1.5 }}>{title}</div>
           </div>
           {price ? (
             <div style={{ display: "flex", alignItems: "center", alignSelf: "flex-start", background: "#2346D0", color: "#FFFFFF", borderRadius: 99, padding: "16px 30px", gap: 14 }}>
               <div style={{ fontSize: 26 }}>Instant download</div>
-              {/* Grotesk, not Syne: Syne's default 9 drops below the baseline and next/og can't switch to lining figures. */}
-              <div style={{ fontSize: 34 }}>{`$${price.amount}`}</div>
+              <div style={{ fontFamily: "Display", fontSize: 34 }}>{`$${price.amount}`}</div>
               {price.compareAt ? <div style={{ fontSize: 22, opacity: 0.7, textDecoration: "line-through" }}>{`$${price.compareAt}`}</div> : null}
             </div>
           ) : (
@@ -73,7 +72,7 @@ export async function renderCard({ kicker, title, price, image, imageMime = "ima
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Syne", data: syne, weight: 800, style: "normal" },
+        { name: "Display", data: display, weight: 800, style: "normal" },
         { name: "Grotesk", data: grotesk, weight: 500, style: "normal" },
       ],
     },

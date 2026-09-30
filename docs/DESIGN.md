@@ -33,7 +33,7 @@ If it's cobalt, clicking it moves you toward checkout.
 
 ## Type
 
-- Syne 700/800: headlines, set tight and large. Shared with the agency.
+- Bricolage Grotesque 700/800: headlines, prices and the wordmark, set tight and large. It replaced Syne, whose heavy weights read as horizontally stretched.
 - Space Grotesk 400/500: body and UI. Shared with the agency.
 - Space Mono 400: the prompt text only, because prompts are literal text you paste.
 

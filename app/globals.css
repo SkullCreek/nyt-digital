@@ -8,7 +8,7 @@ a,button,input,summary,label{touch-action:manipulation;-webkit-tap-highlight-col
   --plaster:#EEF0F3; --paper:#FFFFFF; --ink:#0F1A3C; --ink-soft:#4A5270;
   --cobalt:#2346D0; --cobalt-deep:#1A35A6; --brass:#B08A3E; --brass-text:#7A5820; --night:#0A0F2C; --rec:#E5484D;
   --line:rgba(15,26,60,.12); --line-strong:rgba(15,26,60,.22);
-  --display:var(--font-syne),"Arial Black",system-ui,sans-serif;
+  --display:var(--font-display),system-ui,sans-serif;
   --body:var(--font-grotesk),system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:var(--font-mono),ui-monospace,Menlo,Consolas,monospace;
   --r-media:14px; --r-panel:24px;
@@ -19,7 +19,7 @@ html,body{background:var(--plaster)}
 ::selection{background:rgba(35,70,208,.2);color:var(--ink)}
 .night ::selection{background:rgba(143,166,255,.35);color:#fff}
 input,textarea{caret-color:var(--cobalt)}
-/* Syne defaults to old-style figures (a 9 drops below the baseline); use lining figures site-wide. */
+/* Prices and counts always use lining figures, whatever the display face defaults to. */
 html{font-variant-numeric:lining-nums}
 body{margin:0;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img,video{max-width:100%;height:auto;display:block}
@@ -43,7 +43,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none}
 .brand svg{width:38px;height:38px;flex:none}
 .brand .word{display:flex;flex-direction:column;line-height:1}
-.brand b{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.03em}
+.brand b{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.01em}
 .brand small{font-size:10px;font-weight:500;letter-spacing:.42em;color:var(--ink-soft);margin-top:5px;padding-left:1px}
 
 /* ---------- nav ---------- */
@@ -82,7 +82,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-copy{grid-area:copy;align-self:end}
 .hero-grid>.spec{grid-area:spec;align-self:start}
 .hero-grid>.finder{grid-area:video}
-.hero h1{font-weight:800;font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.03em;margin:0;max-width:15ch}
+.hero h1{font-weight:800;font-size:clamp(40px,5.2vw,72px);line-height:1;letter-spacing:-.03em;margin:0;max-width:14ch}
 .subtitle{font-size:clamp(18px,1.7vw,21px);font-weight:500;color:var(--ink);margin:16px 0 14px}
 .hero .lead{max-width:46ch}
 .buyrow{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:32px}
