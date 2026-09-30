@@ -54,7 +54,7 @@ export const INTERIOR_PROMPTS: Product = {
     captions: "/video/ugc-ad-interior-prompts.vtt",
     poster: "/images/ugc-ad-poster.webp",
     duration: "PT20S",
-    uploadDate: "2026-09-29",
+    uploadDate: "2026-09-29T00:00:00+05:30", // full date-time with timezone: Google rejects a bare date
     width: 478,
     height: 850,
     caption: "Nobody stops for a photo. One photo, one prompt: before-afters, walkthroughs, day to night and sketch to space, none of it filmed.",

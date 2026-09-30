@@ -53,7 +53,7 @@ export function productGraph(p: Product) {
         sku: p.slug,
         category: "Digital products > Prompt kits",
         brand: { "@type": "Brand", name: "NYT Studios" },
-        audience: { "@type": "Audience", audienceType: p.audience },
+        audience: { "@type": "PeopleAudience", audienceType: p.audience }, // Google only accepts PeopleAudience here
         offers: {
           "@type": "Offer",
           url,
@@ -61,6 +61,13 @@ export function productGraph(p: Product) {
           priceCurrency: p.price.currency,
           availability: "https://schema.org/InStock",
           seller: { "@id": ORG_ID },
+          // All sales are final (see /refunds). Countries are the main markets we advertise to.
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: ["US", "GB", "CA", "AU", "IN"],
+            returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+            merchantReturnLink: abs("/refunds"),
+          },
         },
         ...(video ? { subjectOf: { "@id": video["@id"] } } : {}),
       },
