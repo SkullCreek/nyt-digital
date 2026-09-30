@@ -15,7 +15,7 @@ export default function Privacy() {
       title="Privacy Policy"
       summary={
         <p>
-          In short: we collect your email only if you ask for the free prompt, we use ad cookies only as described below,
+          In short: we collect your email only if you ask for the free prompt, we use measurement cookies only as described below,
           payments are handled by Whop, and you can ask us to delete your data at any time by emailing{" "}
           <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
         </p>
@@ -37,6 +37,7 @@ export default function Privacy() {
             <tr><td>Email address</td><td>You ask for the free prompt</td><td>To send the prompt and occasional emails about our kits</td><td>Your consent</td></tr>
             <tr><td>Page views, referrer, device type, country</td><td>Every visit</td><td>To see which pages work, without cookies or identifying you</td><td>Legitimate interest</td></tr>
             <tr><td>Ad cookies and click IDs (Meta Pixel, Whop Pixel)</td><td>Only as described under Cookies</td><td>To see which ads bring visitors and sales</td><td>Consent (or your right to opt out, depending on where you live)</td></tr>
+            <tr><td>How you use the site: clicks, scrolling, pages viewed and a recording of your visit (Microsoft Clarity)</td><td>Only as described under Cookies</td><td>To find and fix parts of the site that are confusing or broken</td><td>Consent (or your right to opt out, depending on where you live)</td></tr>
             <tr><td>Name, email, payment and order details</td><td>You buy on Whop</td><td>To take payment and deliver your files. Whop processes these; we see order details</td><td>Contract</td></tr>
             <tr><td>Messages you send us</td><td>You email or WhatsApp us</td><td>To reply to you</td><td>Legitimate interest</td></tr>
           </tbody>
@@ -48,9 +49,10 @@ export default function Privacy() {
       <ul>
         <li><b>Essential:</b> we store your cookie choice in your browser, and a short-lived cookie with your country so we know which choice to offer. These are always on.</li>
         <li><b>Ad measurement:</b> the Meta Pixel (cookies such as <code>_fbp</code>) and the Whop Pixel measure which ads lead to visits and purchases.</li>
+        <li><b>Site usage:</b> Microsoft Clarity (cookies such as <code>_clck</code> and <code>_clsk</code>) records how visitors move through the site, as heatmaps and session recordings.</li>
       </ul>
       <p>
-        If you are in the EU, EEA, UK or Switzerland, ad measurement stays off until you click Accept. Everywhere else it is on by default and you can turn it off.
+        If you are in the EU, EEA, UK or Switzerland, both stay off until you click Accept. Everywhere else they are on by default and you can turn them off.
         You can change your choice at any time with “Cookie settings” at the bottom of every page.
       </p>
       <p>Our site analytics (Vercel Web Analytics) uses no cookies.</p>
@@ -63,6 +65,7 @@ export default function Privacy() {
         <li><b>Brevo</b> (France): stores the email list and sends our emails.</li>
         <li><b>Cloudflare</b> (USA): Turnstile checks that form submissions come from people, not bots.</li>
         <li><b>Meta</b> (USA/Ireland): ad measurement, only as described under Cookies.</li>
+        <li><b>Microsoft</b> (USA): Clarity heatmaps and session recordings, only as described under Cookies.</li>
       </ul>
       <p>Some of these providers store data outside India or your country. We rely on their contractual safeguards for these transfers.</p>
 

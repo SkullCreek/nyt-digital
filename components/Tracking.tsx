@@ -1,6 +1,6 @@
 "use client";
 
-// Loads the Meta Pixel and Whop Pixel only when ad measurement is allowed,
+// Loads the Meta Pixel, Whop Pixel and Microsoft Clarity only when measurement is allowed,
 // and sends a page view on every client-side route change.
 import Script from "next/script";
 import { usePathname } from "next/navigation";
@@ -10,6 +10,7 @@ import { READY_EVENT } from "@/lib/track";
 
 const META_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const WHOP_ID = process.env.NEXT_PUBLIC_WHOP_ACCOUNT_ID;
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 export default function Tracking() {
   const [allowed, setAllowed] = useState(false);
@@ -51,6 +52,14 @@ export default function Tracking() {
       {WHOP_ID ? (
         <Script id="whop-pixel" strategy="afterInteractive">
           {`!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");whop.setScope("${WHOP_ID}");whop.track("page");window.dispatchEvent(new Event("${READY_EVENT}"));`}
+        </Script>
+      ) : null}
+      {CLARITY_ID ? (
+        // Heatmaps and session recordings. It only loads once measurement is allowed, so consent is
+        // passed as granted; Clarity needs that signal for EEA, UK and Swiss visitors. The script id must
+        // not be "clarity": an element with that id would shadow window.clarity.
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","${CLARITY_ID}");clarity("consentv2",{ad_Storage:"granted",analytics_Storage:"granted"});`}
         </Script>
       ) : null}
     </>

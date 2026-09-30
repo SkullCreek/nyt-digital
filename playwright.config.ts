@@ -3,8 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 3200;
 
 // Production build with Cloudflare's official always-pass Turnstile test keys and a fake
-// Brevo key, so no real email is ever sent. A dummy pixel ID lets us test consent gating;
-// the real Meta script is blocked in the tests.
+// Brevo key, so no real email is ever sent. Dummy pixel and Clarity IDs let us test consent
+// gating; the real Meta and Clarity scripts are blocked in the tests.
 const env = {
   NEXT_DIST_DIR: ".next-e2e",
   NEXT_PUBLIC_SITE_URL: "https://digital.nyt-studios.com",
@@ -12,6 +12,7 @@ const env = {
   TURNSTILE_SECRET_KEY: "1x0000000000000000000000000000000AA",
   NEXT_PUBLIC_META_PIXEL_ID: "1234567890",
   NEXT_PUBLIC_WHOP_ACCOUNT_ID: "",
+  NEXT_PUBLIC_CLARITY_ID: "e2eclarity",
   BREVO_API_KEY: "e2e-disabled",
   BREVO_LIST_ID: "1",
 };

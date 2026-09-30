@@ -41,8 +41,8 @@ export default function ConsentBanner() {
       <h2 id={`${id}-t`}>Cookies</h2>
       <p>
         {mode === "strict"
-          ? "We'd like to use cookies from Meta and Whop to see which ads bring people here. Nothing is set until you choose."
-          : "We use cookies from Meta and Whop to see which ads bring people here. You can turn them off."}{" "}
+          ? "We'd like to use cookies from Meta, Whop and Microsoft to see which ads bring people here and how the site is used. Nothing is set until you choose."
+          : "We use cookies from Meta, Whop and Microsoft to see which ads bring people here and how the site is used. You can turn them off."}{" "}
         <Link href="/privacy#cookies">How we use them</Link>
       </p>
 
@@ -57,8 +57,8 @@ export default function ConsentBanner() {
           </div>
           <label className="pref" htmlFor={`${id}-m`}>
             <div>
-              <b>Ad measurement</b>
-              <span>Meta Pixel and Whop Pixel.</span>
+              <b>Measurement</b>
+              <span>Meta Pixel, Whop Pixel and Microsoft Clarity.</span>
             </div>
             {/* toggle (ref: uiverse Bodyhc/loud-badger-7) */}
             <input id={`${id}-m`} type="checkbox" role="switch" className="switch" checked={marketing} onChange={(e) => setMarketing(e.target.checked)} />

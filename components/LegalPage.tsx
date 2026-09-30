@@ -1,7 +1,7 @@
 import type React from "react";
 import { Footer, Nav } from "./Chrome";
 
-export const LEGAL_UPDATED = "29 September 2026";
+export const LEGAL_UPDATED = "30 September 2026";
 
 const NAV = [
   { href: "/privacy", label: "Privacy" },

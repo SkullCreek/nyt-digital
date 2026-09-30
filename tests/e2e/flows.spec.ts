@@ -2,14 +2,22 @@ import { expect, test, type Page } from "@playwright/test";
 
 const PRODUCT = "/products/ai-video-prompts-interior-design-reels";
 
-// Never load the real Meta script in tests; the inline stub is enough to observe events.
+// Never load the real Meta or Clarity scripts in tests; the inline stubs are enough to observe events.
 async function blockThirdParties(page: Page) {
   await page.route("https://connect.facebook.net/**", (r) => r.fulfill({ contentType: "text/javascript", body: "" }));
   await page.route("https://t.whop.tw/**", (r) => r.fulfill({ contentType: "text/javascript", body: "" }));
+  await page.route("https://www.clarity.ms/**", (r) => r.fulfill({ contentType: "text/javascript", body: "" }));
 }
 
 const fbqEvents = (page: Page) =>
   page.evaluate(() => (window.fbq ? ((window.fbq as unknown as { queue: unknown[][] }).queue ?? []).map((a) => String(a[1])) : null));
+
+// Calls queued on the Clarity stub, or null when Clarity was never loaded.
+const clarityCalls = (page: Page) =>
+  page.evaluate(() => {
+    const c = (window as unknown as { clarity?: { q?: ArrayLike<unknown>[] } }).clarity;
+    return c ? Array.from(c.q ?? []).map((a) => Array.from(a)) : null;
+  });
 
 test.beforeEach(async ({ page }) => {
   await blockThirdParties(page);
@@ -44,9 +52,11 @@ test.describe("cookie consent", () => {
     await expect(banner.getByRole("button", { name: "Reject" })).toBeVisible();
     await expect(banner.getByRole("button", { name: "Accept" })).toBeVisible();
     expect(await fbqEvents(page)).toBeNull();
+    expect(await clarityCalls(page)).toBeNull();
 
     await banner.getByRole("button", { name: "Accept" }).click();
     await expect.poll(() => fbqEvents(page)).toEqual(expect.arrayContaining(["PageView", "ViewContent"]));
+    await expect.poll(() => clarityCalls(page)).toEqual([["consentv2", { ad_Storage: "granted", analytics_Storage: "granted" }]]);
     await expect(banner).toBeHidden();
   });
 
@@ -57,6 +67,7 @@ test.describe("cookie consent", () => {
     await expect(page.getByRole("dialog", { name: "Cookies" })).toBeHidden();
     await page.waitForTimeout(500);
     expect(await fbqEvents(page)).toBeNull();
+    expect(await clarityCalls(page)).toBeNull();
   });
 
   test("notice region (India): measurement on by default, opt-out works", async ({ page, context }) => {
@@ -66,6 +77,7 @@ test.describe("cookie consent", () => {
     await expect(banner.getByRole("button", { name: "OK" })).toBeVisible();
     await expect(banner.getByRole("button", { name: "Reject" })).toHaveCount(0);
     await expect.poll(() => fbqEvents(page)).toContain("PageView");
+    await expect.poll(() => clarityCalls(page)).not.toBeNull();
 
     // Opt out through Settings.
     await banner.getByRole("button", { name: "Settings" }).click();
@@ -74,6 +86,7 @@ test.describe("cookie consent", () => {
     await page.waitForLoadState("load"); // revoking reloads the page
     await page.waitForTimeout(500);
     expect(await fbqEvents(page)).toBeNull();
+    expect(await clarityCalls(page)).toBeNull();
   });
 
   test("footer Cookie settings reopens the choice", async ({ page }) => {

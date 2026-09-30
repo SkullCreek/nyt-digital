@@ -3,7 +3,7 @@ import { PRODUCTS, productPath } from "@/lib/products";
 import { SITE } from "@/lib/site";
 
 // Bump when page content changes meaningfully; search engines use it to prioritise recrawls.
-const UPDATED = new Date("2026-09-29");
+const UPDATED = new Date("2026-09-30");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = (path: string) => `${SITE.url}${path}`;

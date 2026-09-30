@@ -19,7 +19,7 @@ This site handles the pitch, tracking, email capture and search visibility.
 - Next.js 16 (App Router), TypeScript, statically generated.
 - Hosted on Vercel (Pro plan, because this is a commercial site).
 - Checkout: Whop.
-- Tracking: Vercel Web Analytics, Meta Pixel, Whop Pixel.
+- Tracking: Vercel Web Analytics, Meta Pixel, Whop Pixel, Microsoft Clarity.
 - Email list: Brevo.
 - Spam protection: Cloudflare Turnstile.
 
@@ -43,6 +43,7 @@ Never commit `.env.local`.
 | `NEXT_PUBLIC_SITE_URL` | Yes | `https://digital.nyt-studios.com` (defaults to this if unset) |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Yes | Meta Pixel ID |
 | `NEXT_PUBLIC_WHOP_ACCOUNT_ID` | Yes | Whop business ID (`biz_...`) for the Whop Pixel |
+| `NEXT_PUBLIC_CLARITY_ID` | Yes | Microsoft Clarity project ID (heatmaps and session recordings) |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Yes | Turnstile site key |
 | `TURNSTILE_SECRET_KEY` | No | Turnstile secret, server only |
 | `BREVO_API_KEY` | No | Brevo API key, server only |

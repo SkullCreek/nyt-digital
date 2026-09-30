@@ -1,7 +1,7 @@
 // Cookie consent state, shared by the banner and the tracking loader (browser only).
 //
-// "strict" regions (EEA, UK, Switzerland) are opt-in: no ad measurement until Accept.
-// Everywhere else is notice + opt-out: ad measurement is on until the visitor turns it off.
+// "strict" regions (EEA, UK, Switzerland) are opt-in: no measurement (pixels, Clarity) until Accept.
+// Everywhere else is notice + opt-out: measurement is on until the visitor turns it off.
 // The visitor's country comes from the `nyt-geo` cookie set by proxy.ts.
 // Unknown country (local dev, missing header) is treated as strict.
 
