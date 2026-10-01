@@ -20,7 +20,7 @@ test.describe("layout", () => {
     await expect(bar).toHaveAttribute("data-show", "false");
     await page.locator("#inside").scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute("data-show", "true");
-    await expect(bar.getByRole("link", { name: /Get the prompts \$9/ })).toBeVisible();
+    await expect(bar.getByRole("link", { name: /Get the prompts \$1\.99/ })).toBeVisible();
   });
 });
 
@@ -38,7 +38,7 @@ test.describe("search", () => {
     const graphs = await page.locator('script[type="application/ld+json"]').allTextContents();
     const types = graphs.flatMap((g) => JSON.parse(g)["@graph"]);
     const product = types.find((t: { "@type": string }) => t["@type"] === "Product");
-    expect(product.offers.price).toBe("9.00");
+    expect(product.offers.price).toBe("1.99");
     expect(product.offers.priceCurrency).toBe("USD");
     expect(types.map((t: { "@type": string }) => t["@type"])).toEqual(expect.arrayContaining(["VideoObject", "FAQPage", "BreadcrumbList"]));
   });
@@ -55,7 +55,7 @@ test.describe("search", () => {
     const sitemap = await (await request.get("/sitemap.xml")).text();
     expect(sitemap).toContain(`https://digital.nyt-studios.com${PRODUCT}`);
     expect(await (await request.get("/robots.txt")).text()).toContain("Sitemap: https://digital.nyt-studios.com/sitemap.xml");
-    expect(await (await request.get("/llms.txt")).text()).toContain("Price: $9 (USD)");
+    expect(await (await request.get("/llms.txt")).text()).toContain("Price: $1.99 (USD)");
     for (const path of ["/opengraph-image", `${PRODUCT}/opengraph-image`]) {
       const res = await request.get(path);
       expect(res.status()).toBe(200);

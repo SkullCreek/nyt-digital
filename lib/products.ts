@@ -39,9 +39,9 @@ export const INTERIOR_PROMPTS: Product = {
   shortName: "100 prompts for interior design reels",
   altNames: ["Scroll-Stopping Rooms", "Rooms in Motion"],
   tagline: "Turn your finished projects into 20-second video ads that book clients. No videographer, and no faked walls.",
-  metaDescription: "100 copy-paste Seedance 2.5 prompts that turn your interior design photos into 20-second video ads. No videographer, no faked walls. $9.",
+  metaDescription: "100 copy-paste Seedance 2.5 prompts that turn your interior design photos into 20-second video ads. No videographer, no faked walls. $1.99.",
   audience: "Interior designers",
-  price: { amount: 9, currency: "USD", compareAt: 15 },
+  price: { amount: 1.99, currency: "USD", compareAt: 15 },
   whopUrl: "https://whop.com/nyt-studios/ai-video-prompts-for-interior-design-reels/",
   cover: {
     src: "/images/kit-cover.jpg",

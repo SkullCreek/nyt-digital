@@ -28,7 +28,7 @@ test("home and product page render the key content", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Make the AI ads yourself.");
   await page.goto(PRODUCT);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("100 AI Video Prompts for Interior Design Reels");
-  await expect(page.locator("#hero-buy")).toContainText("$9");
+  await expect(page.locator("#hero-buy")).toContainText("$1.99");
 });
 
 test("buy button carries ad tracking params to Whop checkout", async ({ page }) => {
